@@ -1,15 +1,14 @@
 import React, { useState } from 'react'
 import './App.css';
-import About from './components/About';
+// import About from './components/About';
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
 import Alert from "./components/Alert";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+// import {
+//   BrowserRouter as Router,
+//   Switch,
+//   Route
+// } from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -58,24 +57,24 @@ function App() {
   // }
   return (
     <>
-      <Router>
+      {/* <Router> */}
         {/* <Navbar title={"Shaklaaka"} mode={mode} btnText={btnText} toggleMode={toggleMode} secondary={"Boom Boom"} /> */}
         <Navbar title={"Shaklaaka"} mode={mode} toggleMode={toggleMode} secondary={"Boom Boom"} />
         <Alert alert={alert} />
         <div className="container my-3">
-          <Switch>
+          {/* <Switch>
             <Route exact path="/about">
               <About />
             </Route>
             <Route exact path="/">
-              <TextForm showAlert={showAlert} heading={"Enter the Txt "} mode={mode} />
             </Route>
-          </Switch>
+          </Switch> */}
+          <TextForm showAlert={showAlert} heading={"Enter the Txt "} mode={mode} />
         </div>
         <div className="container">
           {/* <About /> */}
         </div>
-      </Router>
+      {/* </Router> */}
 
     </>
   );
