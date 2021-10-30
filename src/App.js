@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import './App.css';
-// import About from './components/About';
+import About from './components/About';
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
 import Alert from "./components/Alert";
-// import {
-//   BrowserRouter as Router,
-//   Switch,
-//   Route
-// } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -28,7 +28,7 @@ function App() {
   let toggleMode = () => {
     if (mode === 'dark') {
       setMode('light');
-      document.body.style.backgroundColor = '#e6ffff';
+      document.body.style.backgroundColor = 'white';
       showAlert("Light mode is on", "success")
       document.title = "Shaklaka-Light mode"
       setInterval(() => {
@@ -39,7 +39,7 @@ function App() {
       }, 1500);
     } else {
       setMode("dark");
-      document.body.style.backgroundColor = '#00264d';
+      document.body.style.backgroundColor = '#323d49';
       showAlert("Dark mode is on", "success")
       document.title = "Shaklaka-Dark mode"
     }
@@ -57,24 +57,24 @@ function App() {
   // }
   return (
     <>
-      {/* <Router> */}
+      <Router>
         {/* <Navbar title={"Shaklaaka"} mode={mode} btnText={btnText} toggleMode={toggleMode} secondary={"Boom Boom"} /> */}
         <Navbar title={"Shaklaaka"} mode={mode} toggleMode={toggleMode} secondary={"Boom Boom"} />
         <Alert alert={alert} />
         <div className="container my-3">
-          {/* <Switch>
+          <Switch>
             <Route exact path="/about">
               <About />
             </Route>
             <Route exact path="/">
-            </Route>
-          </Switch> */}
           <TextForm showAlert={showAlert} heading={"Enter the Txt "} mode={mode} />
+            </Route>
+          </Switch>
         </div>
-        <div className="container">
-          {/* <About /> */}
-        </div>
-      {/* </Router> */}
+        {/* <div className="container">
+          <About />
+        </div> */}
+      </Router>
 
     </>
   );
